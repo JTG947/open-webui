@@ -417,9 +417,9 @@ def get_model_profile_image(id: str, user=Depends(get_verified_user)):
                 except Exception as e:
                     pass
 
-        return FileResponse(f"{STATIC_DIR}/aethyron.png")
+        return FileResponse(f"{STATIC_DIR}/aethyron.svg")
     else:
-        return FileResponse(f"{STATIC_DIR}/aethyron.png")
+        return FileResponse(f"{STATIC_DIR}/aethyron.svg")
 
 
 ############################

@@ -693,14 +693,14 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Open WebUI",
+    title="Aegis",
     docs_url="/docs" if ENV == "dev" else None,
     openapi_url="/openapi.json" if ENV == "dev" else None,
     redoc_url=None,
     lifespan=lifespan,
 )
 
-# For Open WebUI OIDC/OAuth2
+# For Aegis OIDC/OAuth2
 oauth_manager = OAuthManager(app)
 app.state.oauth_manager = oauth_manager
 
@@ -2199,7 +2199,7 @@ async def get_app_changelog():
 @app.get("/api/usage")
 async def get_current_usage(user=Depends(get_verified_user)):
     """
-    Get current usage statistics for Open WebUI.
+    Get current usage statistics for Aegis.
     This is an experimental endpoint and subject to change.
     """
     try:
@@ -2459,7 +2459,7 @@ async def get_opensearch_xml():
     <ShortName>{app.state.WEBUI_NAME}</ShortName>
     <Description>Search {app.state.WEBUI_NAME}</Description>
     <InputEncoding>UTF-8</InputEncoding>
-    <Image width="16" height="16" type="image/x-icon">{app.state.config.WEBUI_URL}/static/aethyron.png</Image>
+    <Image width="16" height="16" type="image/x-icon">{app.state.config.WEBUI_URL}/static/aethyron.svg</Image>
     <Url type="text/html" method="get" template="{app.state.config.WEBUI_URL}/?q={"{searchTerms}"}"/>
     <moz:SearchForm>{app.state.config.WEBUI_URL}</moz:SearchForm>
     </OpenSearchDescription>
@@ -2501,7 +2501,7 @@ def swagger_ui_html(*args, **kwargs):
         **kwargs,
         swagger_js_url="/static/swagger-ui/swagger-ui-bundle.js",
         swagger_css_url="/static/swagger-ui/swagger-ui.css",
-        swagger_favicon_url="/static/swagger-ui/aethyron.png",
+        swagger_favicon_url="/static/swagger-ui/aethyron.svg",
     )
 
 

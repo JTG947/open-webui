@@ -37,7 +37,7 @@
 		}
 	};
 
-	let profileImageUrl = `${WEBUI_BASE_URL}/aethyron.png`;
+	let profileImageUrl = `${WEBUI_BASE_URL}/aethyron.svg`;
 	let description = '';
 
 	let selectedModelId = '';
@@ -93,7 +93,7 @@
 
 		name = '';
 		id = '';
-		profileImageUrl = `${WEBUI_BASE_URL}/aethyron.png`;
+		profileImageUrl = `${WEBUI_BASE_URL}/aethyron.svg`;
 		description = '';
 		modelIds = [];
 		selectedModelId = '';

@@ -152,7 +152,7 @@
 
 			if (modelIds.length === 0) {
 				loading = false;
-				toast.error($i18n.t('Deployment names are required for Azure OpenAI'));
+				toast.error($i18n.t('Deployment names are required for Aegis'));
 				return;
 			}
 		}
@@ -490,7 +490,7 @@
 										type="button"
 										class=" text-xs text-gray-700 dark:text-gray-300"
 									>
-										{azure ? $i18n.t('Azure OpenAI') : $i18n.t('OpenAI')}
+										{azure ? $i18n.t('Aegis') : $i18n.t('Aegis')}
 									</button>
 								</div>
 							</div>
@@ -603,7 +603,7 @@
 											url: url
 										})}
 									{:else if azure}
-										{$i18n.t('Deployment names are required for Azure OpenAI')}
+										{$i18n.t('Deployment names are required for Aegis')}
 										<!-- {$i18n.t('Leave empty to include all models from "{{url}}" endpoint', {
 											url: `${url}/openai/deployments`
 										})} -->

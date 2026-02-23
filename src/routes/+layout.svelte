@@ -369,9 +369,9 @@
 
 					if ($isLastActiveTab) {
 						if ($settings?.notificationEnabled ?? false) {
-							new Notification(`${displayTitle} • Open WebUI`, {
+							new Notification(`${displayTitle} • Aegis`, {
 								body: content,
-								icon: `${WEBUI_BASE_URL}/static/aethyron.png`
+								icon: `${WEBUI_BASE_URL}/static/aethyron.svg`
 							});
 						}
 					}
@@ -572,7 +572,7 @@
 
 				if ($isLastActiveTab) {
 					if ($settings?.notificationEnabled ?? false) {
-						new Notification(`${title} • Open WebUI`, {
+						new Notification(`${title} • Aegis`, {
 							body: data?.content,
 							icon: `${WEBUI_API_BASE_URL}/users/${data?.user?.id}/profile/image`
 						});
@@ -874,7 +874,7 @@
 
 <svelte:head>
 	<title>{$WEBUI_NAME}</title>
-	<link crossorigin="anonymous" rel="icon" href="{WEBUI_BASE_URL}/static/aethyron.png" />
+	<link crossorigin="anonymous" rel="icon" href="{WEBUI_BASE_URL}/static/aethyron.svg" />
 
 	<meta name="apple-mobile-web-app-title" content={$WEBUI_NAME} />
 	<meta name="description" content={$WEBUI_NAME} />

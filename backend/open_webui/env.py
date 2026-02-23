@@ -87,11 +87,12 @@ if "cuda_error" in locals():
 
 SRC_LOG_LEVELS = {}  # Legacy variable, do not remove
 
-WEBUI_NAME = os.environ.get("WEBUI_NAME", "Open WebUI")
-if WEBUI_NAME != "Open WebUI":
-    WEBUI_NAME += " (Open WebUI)"
+WEBUI_NAME = os.environ.get("WEBUI_NAME", "Aegis")
+if WEBUI_NAME != "Aegis":
+    WEBUI_NAME += " (Aegis)"
 
-WEBUI_FAVICON_URL = "https://openwebui.com/aethyron.png"
+
+WEBUI_FAVICON_URL = "https://openwebui.com/favicon.png"
 
 TRUSTED_SIGNATURE_KEY = os.environ.get("TRUSTED_SIGNATURE_KEY", "")
 
@@ -264,9 +265,20 @@ FONTS_DIR = Path(os.getenv("FONTS_DIR", OPEN_WEBUI_DIR / "static" / "fonts"))
 FRONTEND_BUILD_DIR = Path(os.getenv("FRONTEND_BUILD_DIR", BASE_DIR / "build")).resolve()
 
 if FROM_INIT_PY:
-    FRONTEND_BUILD_DIR = Path(
-        os.getenv("FRONTEND_BUILD_DIR", OPEN_WEBUI_DIR / "frontend")
-    ).resolve()
+    configured_frontend_build_dir = os.getenv("FRONTEND_BUILD_DIR")
+    packaged_frontend_build_dir = (OPEN_WEBUI_DIR / "frontend").resolve()
+    source_frontend_build_dir = (BASE_DIR / "build").resolve()
+
+    if configured_frontend_build_dir:
+        FRONTEND_BUILD_DIR = Path(configured_frontend_build_dir).resolve()
+    elif packaged_frontend_build_dir.exists():
+        FRONTEND_BUILD_DIR = packaged_frontend_build_dir
+    elif source_frontend_build_dir.exists():
+        # Editable installs can run from source trees where `build/` exists but the
+        # package-included `open_webui/frontend` directory does not.
+        FRONTEND_BUILD_DIR = source_frontend_build_dir
+    else:
+        FRONTEND_BUILD_DIR = packaged_frontend_build_dir
 
 ####################################
 # Database

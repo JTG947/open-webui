@@ -35,7 +35,7 @@
 				meta: {
 					...modelInfo.meta,
 					profile_image_url:
-						modelInfo.meta.profile_image_url ?? `${WEBUI_BASE_URL}/static/aethyron.png`,
+						modelInfo.meta.profile_image_url ?? `${WEBUI_BASE_URL}/static/aethyron.svg`,
 					suggestion_prompts: modelInfo.meta.suggestion_prompts
 						? modelInfo.meta.suggestion_prompts.filter((prompt) => prompt.content !== '')
 						: null

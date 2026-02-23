@@ -240,7 +240,7 @@
 							placeholder={$i18n.t('Select an engine')}
 						>
 							<option value="">{$i18n.t('Whisper (Local)')}</option>
-							<option value="openai">{$i18n.t('OpenAI')}</option>
+							<option value="openai">{$i18n.t('Aegis')}</option>
 							<option value="web">{$i18n.t('Web API')}</option>
 							<option value="deepgram">{$i18n.t('Deepgram')}</option>
 							<option value="azure">{$i18n.t('Azure AI Speech')}</option>
@@ -481,7 +481,7 @@
 						</div>
 
 						<div class="mt-2 mb-1 text-xs text-gray-400 dark:text-gray-500">
-							{$i18n.t(`Open WebUI uses faster-whisper internally.`)}
+							{$i18n.t(`Aegis uses faster-whisper internally.`)}
 
 							<a
 								class=" hover:underline dark:text-gray-200 text-gray-800"
@@ -627,7 +627,7 @@
 								</div>
 							</div>
 							<div class="mt-2 mb-1 text-xs text-gray-400 dark:text-gray-500">
-								{$i18n.t(`Open WebUI uses SpeechT5 and CMU Arctic speaker embeddings.`)}
+								{$i18n.t(`Aegis uses SpeechT5 and CMU Arctic speaker embeddings.`)}
 
 								To learn more about SpeechT5,
 

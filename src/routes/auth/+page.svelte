@@ -151,15 +151,15 @@
 
 			if (isDarkMode) {
 				const darkImage = new Image();
-				darkImage.src = `${WEBUI_BASE_URL}/static/favicon-dark.png`;
+				darkImage.src = `${WEBUI_BASE_URL}/static/aethyron.svg`;
 
 				darkImage.onload = () => {
-					logo.src = `${WEBUI_BASE_URL}/static/favicon-dark.png`;
-					logo.style.filter = ''; // Ensure no inversion is applied if favicon-dark.png exists
+					logo.src = `${WEBUI_BASE_URL}/static/aethyron.svg`;
+					logo.style.filter = ''; // Ensure no inversion is applied if aethyron.svg exists
 				};
 
 				darkImage.onerror = () => {
-					logo.style.filter = 'invert(1)'; // Invert image if favicon-dark.png is missing
+					logo.style.filter = 'invert(1)'; // Invert image if aethyron.svg is missing
 				};
 			}
 		}
@@ -241,7 +241,7 @@
 									<img
 										id="logo"
 										crossorigin="anonymous"
-										src="{WEBUI_BASE_URL}/static/aethyron.png"
+										src="{WEBUI_BASE_URL}/static/aethyron.svg"
 										class="size-24 rounded-full"
 										alt=""
 									/>
@@ -588,7 +588,7 @@
 						<img
 							id="logo"
 							crossorigin="anonymous"
-							src="{WEBUI_BASE_URL}/static/aethyron.png"
+							src="{WEBUI_BASE_URL}/static/aethyron.svg"
 							class=" w-6 rounded-full"
 							alt=""
 						/>

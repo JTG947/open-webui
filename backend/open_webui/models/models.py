@@ -34,7 +34,7 @@ class ModelParams(BaseModel):
 
 # ModelMeta is a model for the data stored in the meta field of the Model table
 class ModelMeta(BaseModel):
-    profile_image_url: Optional[str] = "/static/aethyron.png"
+    profile_image_url: Optional[str] = "/static/aethyron.svg"
 
     description: Optional[str] = None
     """

@@ -80,7 +80,7 @@
 			});
 
 			if (res) {
-				toast.success($i18n.t('OpenAI API settings updated'));
+				toast.success($i18n.t('Aegis API settings updated'));
 				await models.set(await getModels());
 			}
 		}
@@ -226,7 +226,7 @@
 				<div class="my-2">
 					<div class="mt-2 space-y-2">
 						<div class="flex justify-between items-center text-sm">
-							<div class="  font-medium">{$i18n.t('OpenAI API')}</div>
+							<div class="  font-medium">{$i18n.t('Aegis API')}</div>
 
 							<div class="flex items-center">
 								<div class="">
@@ -243,7 +243,7 @@
 						{#if ENABLE_OPENAI_API}
 							<div class="">
 								<div class="flex justify-between items-center">
-									<div class="font-medium text-xs">{$i18n.t('Manage OpenAI API Connections')}</div>
+									<div class="font-medium text-xs">{$i18n.t('Manage Aegis API Connections')}</div>
 
 									<Tooltip content={$i18n.t(`Add Connection`)}>
 										<button
@@ -379,7 +379,7 @@
 
 					<div class="mt-1 text-xs text-gray-400 dark:text-gray-500">
 						{$i18n.t(
-							'Direct Connections allow users to connect to their own OpenAI compatible API endpoints.'
+							'Direct Connections allow users to connect to their own Aegis compatible API endpoints.'
 						)}
 					</div>
 				</div>
