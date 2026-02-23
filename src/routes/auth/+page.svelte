@@ -241,7 +241,7 @@
 									<img
 										id="logo"
 										crossorigin="anonymous"
-										src="{WEBUI_BASE_URL}/static/favicon.png"
+										src="{WEBUI_BASE_URL}/static/aethyron.png"
 										class="size-24 rounded-full"
 										alt=""
 									/>
@@ -588,7 +588,7 @@
 						<img
 							id="logo"
 							crossorigin="anonymous"
-							src="{WEBUI_BASE_URL}/static/favicon.png"
+							src="{WEBUI_BASE_URL}/static/aethyron.png"
 							class=" w-6 rounded-full"
 							alt=""
 						/>

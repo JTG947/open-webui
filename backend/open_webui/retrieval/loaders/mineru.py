@@ -23,7 +23,7 @@ class MinerULoader:
         self,
         file_path: str,
         api_mode: str = "local",
-        api_url: str = "http://localhost:8000",
+        api_url: str = "http://localhost:8002",
         api_key: str = "",
         params: dict = None,
         timeout: Optional[int] = 300,

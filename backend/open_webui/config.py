@@ -398,7 +398,7 @@ MICROSOFT_CLIENT_LOGIN_BASE_URL = PersistentConfig(
         "MICROSOFT_CLIENT_LOGIN_BASE_URL", "https://login.microsoftonline.com"
     ),
 )
-
+ 
 MICROSOFT_CLIENT_PICTURE_URL = PersistentConfig(
     "MICROSOFT_CLIENT_PICTURE_URL",
     "oauth.microsoft.picture_url",
@@ -638,7 +638,7 @@ OAUTH_AUDIENCE = PersistentConfig(
     "oauth.audience",
     os.environ.get("OAUTH_AUDIENCE", ""),
 )
-
+ 
 
 def load_oauth_providers():
     OAUTH_PROVIDERS.clear()
@@ -852,11 +852,11 @@ for file_path in (FRONTEND_BUILD_DIR / "static").glob("**/*"):
         except Exception as e:
             logging.error(f"An error occurred: {e}")
 
-frontend_favicon = FRONTEND_BUILD_DIR / "static" / "favicon.png"
+frontend_favicon = FRONTEND_BUILD_DIR / "static" / "aethyron.png"
 
 if frontend_favicon.exists():
     try:
-        shutil.copyfile(frontend_favicon, STATIC_DIR / "favicon.png")
+        shutil.copyfile(frontend_favicon, STATIC_DIR / "aethyron.png")
     except Exception as e:
         logging.error(f"An error occurred: {e}")
 
@@ -897,7 +897,7 @@ if CUSTOM_NAME:
 
                 r = requests.get(url, stream=True)
                 if r.status_code == 200:
-                    with open(f"{STATIC_DIR}/favicon.png", "wb") as f:
+                    with open(f"{STATIC_DIR}/aethyron.png", "wb") as f:
                         r.raw.decode_content = True
                         shutil.copyfileobj(r.raw, f)
 
@@ -984,7 +984,7 @@ ENABLE_OLLAMA_API = PersistentConfig(
 )
 
 OLLAMA_API_BASE_URL = os.environ.get(
-    "OLLAMA_API_BASE_URL", "http://localhost:11434/api"
+    "OLLAMA_API_BASE_URL", "http://127.0.0.1:8000/v1"
 )
 
 OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "")
@@ -1010,9 +1010,9 @@ if ENV == "prod":
         if USE_OLLAMA_DOCKER.lower() == "true":
             # if you use all-in-one docker container (Open WebUI + Ollama)
             # with the docker build arg USE_OLLAMA=true (--build-arg="USE_OLLAMA=true") this only works with http://localhost:11434
-            OLLAMA_BASE_URL = "http://localhost:11434"
+            OLLAMA_BASE_URL = "http://127.0.0.1:8000/v1"
         else:
-            OLLAMA_BASE_URL = "http://host.docker.internal:11434"
+            OLLAMA_BASE_URL = "http://host.docker.internal:8000"
     elif K8S_FLAG:
         OLLAMA_BASE_URL = "http://ollama-service.open-webui.svc.cluster.local:11434"
 
@@ -1084,7 +1084,7 @@ GEMINI_API_BASE_URL = os.environ.get("GEMINI_API_BASE_URL", "")
 
 
 if OPENAI_API_BASE_URL == "":
-    OPENAI_API_BASE_URL = "https://api.openai.com/v1"
+    OPENAI_API_BASE_URL = "http://127.0.0.1:8000/v1"
 else:
     if OPENAI_API_BASE_URL.endswith("/"):
         OPENAI_API_BASE_URL = OPENAI_API_BASE_URL[:-1]
@@ -1103,7 +1103,7 @@ OPENAI_API_BASE_URLS = (
 )
 
 OPENAI_API_BASE_URLS = [
-    url.strip() if url != "" else "https://api.openai.com/v1"
+    url.strip() if url != "" else "http://127.0.0.1:8000/v1"
     for url in OPENAI_API_BASE_URLS.split(";")
 ]
 OPENAI_API_BASE_URLS = PersistentConfig(
@@ -1120,11 +1120,11 @@ OPENAI_API_CONFIGS = PersistentConfig(
 OPENAI_API_KEY = ""
 try:
     OPENAI_API_KEY = OPENAI_API_KEYS.value[
-        OPENAI_API_BASE_URLS.value.index("https://api.openai.com/v1")
+        OPENAI_API_BASE_URLS.value.index("http://127.0.0.1:8000/v1")
     ]
 except Exception:
     pass
-OPENAI_API_BASE_URL = "https://api.openai.com/v1"
+OPENAI_API_BASE_URL = "http://127.0.0.1:8000/v1"
 
 
 ####################################
@@ -1650,7 +1650,7 @@ DEFAULT_ARENA_MODEL = {
     "id": "arena-model",
     "name": "Arena Model",
     "meta": {
-        "profile_image_url": "/favicon.png",
+        "profile_image_url": "/aethyron.png",
         "description": "Submit your questions to anonymous AI chatbots and vote on the best response.",
         "model_ids": None,
     },
@@ -2659,7 +2659,7 @@ MINERU_API_MODE = PersistentConfig(
 MINERU_API_URL = PersistentConfig(
     "MINERU_API_URL",
     "rag.mineru_api_url",
-    os.environ.get("MINERU_API_URL", "http://localhost:8000"),
+    os.environ.get("MINERU_API_URL", "http://localhost:8002"),
 )
 
 MINERU_API_TIMEOUT = PersistentConfig(

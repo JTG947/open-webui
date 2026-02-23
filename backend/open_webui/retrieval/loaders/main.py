@@ -342,7 +342,7 @@ class Loader:
             loader = MinerULoader(
                 file_path=file_path,
                 api_mode=self.kwargs.get("MINERU_API_MODE", "local"),
-                api_url=self.kwargs.get("MINERU_API_URL", "http://localhost:8000"),
+                api_url=self.kwargs.get("MINERU_API_URL", "http://localhost:8002"),
                 api_key=self.kwargs.get("MINERU_API_KEY", ""),
                 params=self.kwargs.get("MINERU_PARAMS", {}),
                 timeout=mineru_timeout,
